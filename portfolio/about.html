@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Akash B L</title>
+  <meta name="description" content="Learn about Akash B L — his skills in Python, Java, cybersecurity, database management and personal strengths.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* PAGE HEADER */
+    .page-header {
+      min-height: 340px;
+      display: flex; align-items: flex-end;
+      padding: 120px 5% 60px;
+      background: linear-gradient(180deg, rgba(56,189,248,0.04) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header .ambient { position: absolute; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+    /* ABOUT INTRO */
+    .about-intro {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+    .about-photo-col { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .about-photo {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 0 4px rgba(56,189,248,0.05);
+    }
+    .about-contact-links { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .contact-link-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      transition: all var(--transition);
+    }
+    .contact-link-item:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link-item i { width: 16px; color: var(--accent); }
+
+    .about-bio h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; }
+    .about-bio p { color: var(--muted); line-height: 1.9; margin-bottom: 20px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .skill-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .skill-category::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .skill-category:hover {
+      border-color: rgba(56,189,248,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 40px var(--card-glow);
+    }
+    .skill-cat-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+    .skill-cat-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; color: var(--text); }
+    .skill-list { display: flex; flex-direction: column; gap: 10px; }
+    .skill-item { display: flex; flex-direction: column; gap: 5px; }
+    .skill-item-top { display: flex; justify-content: space-between; align-items: center; }
+    .skill-name { font-size: 0.82rem; color: var(--muted); }
+    .skill-level { font-size: 0.7rem; color: var(--accent); font-family: var(--mono); }
+    .skill-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .skill-fill {
+      height: 100%;
+      background: var(--gradient);
+      border-radius: 2px;
+      width: 0;
+      transition: width 1.2s ease;
+    }
+
+    /* STRENGTHS */
+    .strengths-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .strength-card {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .strength-card:hover {
+      border-color: rgba(56,189,248,0.3);
+      background: var(--surface2);
+    }
+    .strength-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--gradient);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: white;
+    }
+    .strength-text strong { font-size: 0.9rem; display: block; margin-bottom: 2px; }
+    .strength-text span { font-size: 0.78rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .about-intro { grid-template-columns: 1fr; }
+      .about-photo-col { flex-direction: row; align-items: center; gap: 20px; }
+      .about-contact-links { flex-direction: row; flex-wrap: wrap; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .strengths-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .about-photo-col { flex-direction: column; }
+      .about-photo { width: 160px; height: 160px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="loader-logo">ABL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Loading about...</div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">ABL<span style="color:var(--accent)">.</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="education.html">Education</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ambient ambient-1"></div>
+  <div class="page-header-inner">
+    <div class="section-label">About Me</div>
+    <h1 class="section-title">Who I Am &amp; <span>What I Do</span></h1>
+    <p style="color:var(--muted);max-width:520px;font-size:1rem">Get to know my background, skills, and what drives me as a developer and learner.</p>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section class="section">
+  <div class="section-inner">
+
+    <!-- Intro -->
+    <div class="about-intro" data-aos="fade-up">
+      <div class="about-photo-col">
+        <img src="assets/images/profile.jpg" alt="Akash B L" class="about-photo">
+        <div class="about-contact-links">
+          <a href="mailto:akashakubl@gmail.com" class="contact-link-item">
+            <i class="fas fa-envelope"></i> akashakubl@gmail.com
+          </a>
+          <a href="tel:7795047331" class="contact-link-item">
+            <i class="fas fa-phone"></i> 7795047331
+          </a>
+          <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="contact-link-item">
+            <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      <div class="about-bio">
+        <h2>Akash B L</h2>
+        <p style="color:var(--accent);font-family:var(--mono);font-size:0.85rem;margin-bottom:16px">BCA Student · GFGC Tiptur · 2023–2026</p>
+        <p>Motivated BCA student with a strong foundation in computer science and hands-on project experience in cybersecurity. Skilled in Java and Python with a keen interest in software development and secure system design.</p>
+        <p>Seeking an internship opportunity to apply technical knowledge, enhance problem-solving abilities, and contribute to innovative projects while gaining practical industry exposure.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="assets/akash_resume.pdf" class="btn btn-primary btn-sm" download>
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-sm">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- SKILLS -->
+    <div class="section-label" data-aos="fade-up">Skills &amp; Technologies</div>
+    <h2 class="section-title" data-aos="fade-up">My <span>Technical Skills</span></h2>
+    <div class="skills-grid" style="margin-bottom:72px">
+
+      <!-- Programming Languages -->
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-cat-icon">💻</div>
+        <div class="skill-cat-title">Programming Languages</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Java</span>
+              <span class="skill-level">Beginner</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="35"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Beginner</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="40"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">C</span>
+              <span class="skill-level">Basic</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="25"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">SQL</span>
+              <span class="skill-level">Working Knowledge</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="45"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cybersecurity -->
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-cat-icon">🔐</div>
+        <div class="skill-cat-title">Cybersecurity</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Fundamentals of Cyber Security</span>
+              <span class="skill-level">Certified</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Graphical Password Authentication</span>
+              <span class="skill-level">Applied</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Network Security</span>
+              <span class="skill-level">Certified</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Concepts -->
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-cat-icon">🧠</div>
+        <div class="skill-cat-title">Core Concepts</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Database Management</span>
+              <span class="skill-level">Applied</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Data Structures</span>
+              <span class="skill-level">Studying</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="40"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-item-top">
+              <span class="skill-name">Object-Oriented Programming</span>
+              <span class="skill-level">Applied</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="45"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="divider">
+
+    <!-- STRENGTHS -->
+    <div class="section-label" data-aos="fade-up">Personal Strengths</div>
+    <h2 class="section-title" data-aos="fade-up">What Sets Me <span>Apart</span></h2>
+    <div class="strengths-grid" style="margin-bottom:72px">
+      <div class="strength-card" data-aos="fade-up">
+        <div class="strength-icon"><i class="fas fa-bolt"></i></div>
+        <div class="strength-text">
+          <strong>Quick Learner</strong>
+          <span>Rapidly adapts to new tools, languages and frameworks</span>
+        </div>
+      </div>
+      <div class="strength-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="strength-icon"><i class="fas fa-brain"></i></div>
+        <div class="strength-text">
+          <strong>Strong Analytical Thinking</strong>
+          <span>Breaks down complex problems with a structured approach</span>
+        </div>
+      </div>
+      <div class="strength-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="strength-icon"><i class="fas fa-fire"></i></div>
+        <div class="strength-text">
+          <strong>Dedicated &amp; Self-Motivated</strong>
+          <span>Consistently delivers results with minimal supervision</span>
+        </div>
+      </div>
+      <div class="strength-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="strength-icon"><i class="fas fa-sync-alt"></i></div>
+        <div class="strength-text">
+          <strong>Adaptable to New Technologies</strong>
+          <span>Comfortable pivoting to new tools as the industry evolves</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- JOURNEY TIMELINE -->
+    <div class="section-label" data-aos="fade-up">My Journey</div>
+    <h2 class="section-title" data-aos="fade-up">Academic <span>Timeline</span></h2>
+    <div class="timeline" data-aos="fade-up">
+      <div class="timeline-item">
+        <div class="timeline-date">2023 — Present</div>
+        <div class="timeline-title">Bachelor of Computer Applications (BCA)</div>
+        <div class="timeline-sub">GFGC Tiptur</div>
+        <div class="timeline-desc">Pursuing a three-year undergraduate program in Computer Applications with focus on programming, cybersecurity, database systems, and software development.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-title">Certification: Network Security &amp; Cyber Security</div>
+        <div class="timeline-sub">Professional Certification</div>
+        <div class="timeline-desc">Completed a professional certification covering the fundamentals of network security and cyber security principles.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2024</div>
+        <div class="timeline-title">Certification: Cloud Computing &amp; IoT</div>
+        <div class="timeline-sub">Professional Certification</div>
+        <div class="timeline-desc">Completed a professional certification in Cloud Computing and Internet of Things technologies.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025</div>
+        <div class="timeline-title">Project: College Complaint Management System</div>
+        <div class="timeline-sub">Academic Project · Python</div>
+        <div class="timeline-desc">Built a web-based system in Python enabling students to submit and track complaints online with secure login and admin management.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2025</div>
+        <div class="timeline-title">Project: System to Track Personal Data Sharing &amp; Identify Privacy Risks</div>
+        <div class="timeline-sub">Academic Project · Python</div>
+        <div class="timeline-desc">Developed a Python-based system to monitor personal data sharing activities and identify privacy risks using rule-based logic.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABL<span style="color:var(--accent)">.</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Akash B L. Crafted with ❤️ &amp; code.</div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="assets/js/main.js"></script>
+<script>
+// Animate skill bars on scroll
+document.addEventListener('DOMContentLoaded', function() {
+  var bars = document.querySelectorAll('.skill-fill');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.getAttribute('data-width') + '%';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(function(b) { observer.observe(b); });
+});
+</script>
+</body>
+</html>

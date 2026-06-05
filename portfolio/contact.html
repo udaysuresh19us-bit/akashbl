@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Akash B L</title>
+  <meta name="description" content="Contact Akash B L — BCA student open to internships in software development and cybersecurity.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-header {
+      min-height: 300px; display: flex; align-items: flex-end;
+      padding: 120px 5% 60px;
+      background: linear-gradient(180deg, rgba(56,189,248,0.04) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+    /* CONTACT LAYOUT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* INFO COLUMN */
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+    .contact-info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .contact-info-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .contact-info-card .sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all var(--transition);
+      background: var(--surface2);
+    }
+    .contact-item:hover {
+      border-color: var(--accent);
+      background: rgba(56,189,248,0.05);
+      transform: translateX(4px);
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .ci-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .ci-text { display: flex; flex-direction: column; }
+    .ci-text .ci-label { font-size: 0.72rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; letter-spacing: 1px; }
+    .ci-text .ci-value { font-size: 0.88rem; font-weight: 600; margin-top: 2px; }
+
+    .social-row { display: flex; gap: 10px; margin-top: 6px; }
+    .social-btn {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(56,189,248,0.06);
+    }
+
+    /* AVAILABILITY BADGE */
+    .availability {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 18px;
+      background: rgba(56,189,248,0.06);
+      border: 1px solid rgba(56,189,248,0.2);
+      border-radius: var(--radius);
+    }
+    .avail-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 8px rgba(34,197,94,0.6);
+      flex-shrink: 0;
+      animation: pulse 2s ease infinite;
+    }
+    .availability span { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .availability small { display: block; font-size: 0.75rem; color: var(--muted); }
+
+    /* FORM COLUMN */
+    .contact-form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .form-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+    .form-subtitle { font-size: 0.88rem; color: var(--muted); margin-bottom: 32px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      transition: all var(--transition);
+      outline: none;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.08);
+      background: var(--surface);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); opacity: 0.6; }
+
+    .form-group.has-error input,
+    .form-group.has-error textarea {
+      border-color: #EF4444;
+    }
+    .error-msg {
+      font-size: 0.75rem;
+      color: #EF4444;
+      margin-top: 5px;
+      display: none;
+      font-family: var(--mono);
+    }
+    .form-group.has-error .error-msg { display: block; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--gradient);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      border: none;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: all var(--transition);
+      box-shadow: 0 4px 20px var(--btn-glow);
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--btn-glow);
+    }
+    .submit-btn:active { transform: translateY(0); }
+
+    /* Success message */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 32px;
+    }
+    .success-msg .success-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.1);
+      border: 2px solid rgba(34,197,94,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 16px;
+    }
+    .success-msg h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+    .success-msg p { color: var(--muted); font-size: 0.9rem; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .contact-form-wrap { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">ABL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Loading contact...</div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">ABL<span style="color:var(--accent)">.</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="education.html">Education</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-header">
+  <div class="ambient ambient-1"></div>
+  <div class="page-header-inner">
+    <div class="section-label">Say Hello</div>
+    <h1 class="section-title">Get In <span>Touch</span></h1>
+    <p style="color:var(--muted);max-width:520px;font-size:1rem">Whether you have an internship opportunity, a project idea, or just want to connect — I'd love to hear from you.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-layout">
+
+      <!-- Info column -->
+      <div class="contact-info" data-aos="fade-right">
+
+        <div class="availability">
+          <div class="avail-dot"></div>
+          <div>
+            <span>Available for Internships</span>
+            <small>Open to opportunities in software development &amp; cybersecurity</small>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <h3>Contact Details</h3>
+          <p class="sub">Reach out through any of these channels and I'll get back to you as soon as possible.</p>
+
+          <a href="mailto:akashakubl@gmail.com" class="contact-item" id="email-contact-link">
+            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+            <div class="ci-text">
+              <span class="ci-label">Email</span>
+              <span class="ci-value">akashakubl@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="tel:7795047331" class="contact-item" id="phone-contact-link">
+            <div class="ci-icon"><i class="fas fa-phone"></i></div>
+            <div class="ci-text">
+              <span class="ci-label">Phone</span>
+              <span class="ci-value">7795047331</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="contact-item" id="linkedin-contact-link">
+            <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
+            <div class="ci-text">
+              <span class="ci-label">LinkedIn</span>
+              <span class="ci-value">akash-b-l-0abb05404</span>
+            </div>
+          </a>
+
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="social-btn">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="mailto:akashakubl@gmail.com" class="social-btn">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-info-card" style="background:rgba(56,189,248,0.03);border-color:rgba(56,189,248,0.15)">
+          <h3>💼 What I'm Looking For</h3>
+          <p class="sub" style="margin-bottom:0">Internship opportunities in:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+            <span class="tag">Software Development</span>
+            <span class="tag">Python Development</span>
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">Web Development</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Form column -->
+      <div class="contact-form-wrap" data-aos="fade-left">
+        <h2 class="form-title">Send a Message</h2>
+        <p class="form-subtitle">Fill out the form and I'll respond as soon as I can.</p>
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group" id="fg-name">
+              <label for="c-name">Your Name</label>
+              <input type="text" id="c-name" name="name" placeholder="John Doe" autocomplete="name">
+              <span class="error-msg">Please enter your name.</span>
+            </div>
+            <div class="form-group" id="fg-email">
+              <label for="c-email">Email Address</label>
+              <input type="email" id="c-email" name="email" placeholder="john@example.com" autocomplete="email">
+              <span class="error-msg">Please enter a valid email.</span>
+            </div>
+          </div>
+
+          <div class="form-group" id="fg-subject">
+            <label for="c-subject">Subject</label>
+            <input type="text" id="c-subject" name="subject" placeholder="Internship opportunity / Collaboration / Other">
+            <span class="error-msg">Please enter a subject.</span>
+          </div>
+
+          <div class="form-group" id="fg-message">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="6" placeholder="Write your message here..."></textarea>
+            <span class="error-msg">Please enter a message (at least 10 characters).</span>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+
+        <div class="success-msg" id="success-msg">
+          <div class="success-icon">✅</div>
+          <h3>Message Sent!</h3>
+          <p>Thanks for reaching out. I'll get back to you soon.<br>
+          In the meantime, feel free to connect on LinkedIn.</p>
+          <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="btn btn-outline" style="margin-top:20px;display:inline-flex">
+            <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABL<span style="color:var(--accent)">.</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Akash B L. Crafted with ❤️ &amp; code.</div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function() {
+  var form = document.getElementById('contact-form');
+  var successMsg = document.getElementById('success-msg');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  function setError(groupId, show) {
+    var el = document.getElementById(groupId);
+    if (!el) return;
+    if (show) el.classList.add('has-error');
+    else el.classList.remove('has-error');
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name    = document.getElementById('c-name').value.trim();
+    var email   = document.getElementById('c-email').value.trim();
+    var subject = document.getElementById('c-subject').value.trim();
+    var message = document.getElementById('c-message').value.trim();
+    var valid   = true;
+
+    setError('fg-name',    !name);
+    setError('fg-email',   !validateEmail(email));
+    setError('fg-subject', !subject);
+    setError('fg-message', message.length < 10);
+
+    if (!name || !validateEmail(email) || !subject || message.length < 10) return;
+
+    // Simulate success (frontend only)
+    var btn = document.getElementById('submit-btn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+
+    setTimeout(function() {
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    }, 1200);
+  });
+
+  // Real-time validation
+  ['c-name','c-email','c-subject','c-message'].forEach(function(id, i) {
+    var el = document.getElementById(id);
+    var groups = ['fg-name','fg-email','fg-subject','fg-message'];
+    if (!el) return;
+    el.addEventListener('input', function() {
+      if (id === 'c-email') setError('fg-email', el.value && !validateEmail(el.value));
+      else if (id === 'c-message') setError('fg-message', el.value && el.value.trim().length < 10);
+      else setError(groups[i], !el.value.trim());
+    });
+  });
+})();
+</script>
+</body>
+</html>

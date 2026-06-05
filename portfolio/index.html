@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash B L — BCA Student & Developer</title>
+  <meta name="description" content="Portfolio of Akash B L — BCA student skilled in Python, Java and Cybersecurity. Open to internships in software development and secure system design.">
+  <meta name="keywords" content="Akash B L, BCA, Python, Java, Cybersecurity, developer portfolio, GFGC Tiptur">
+  <meta property="og:title" content="Akash B L — Developer Portfolio">
+  <meta property="og:description" content="BCA student with hands-on experience in Python, cybersecurity and web-based systems.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="loader-logo">ABL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Initializing portfolio...</div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">ABL<span style="color:var(--accent)">.</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="education.html">Education</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="ambient ambient-1"></div>
+  <div class="ambient ambient-2"></div>
+
+  <div class="hero-inner">
+    <!-- Left: Text -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span></span> Available for Internships
+      </div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="text-gradient">Akash B L</span>
+      </h1>
+      <p class="hero-subtitle">
+        <span id="typing-text"></span><span class="typing-cursor"></span>
+      </p>
+      <p class="hero-desc">
+        Motivated BCA student with a strong foundation in computer science and hands-on project experience in cybersecurity. Skilled in Java and Python with a keen interest in software development and secure system design.
+      </p>
+      <div class="hero-cta">
+        <a href="resume.html" class="btn btn-primary" id="view-resume-btn">
+          <i class="fas fa-eye"></i> View Resume
+        </a>
+        <a href="assets/akash_resume.pdf" class="btn btn-outline" download id="download-resume-btn">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+        <a href="contact.html" class="btn btn-ghost" id="contact-me-btn">
+          <i class="fas fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+      <div class="hero-social">
+        <span class="hero-social-label">Find me —</span>
+        <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="social-link" aria-label="LinkedIn" id="linkedin-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:akashakubl@gmail.com" class="social-link" aria-label="Email" id="email-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="hero-image-wrap">
+      <div class="hero-image-card">
+        <img src="assets/images/profile.jpg" alt="Akash B L" class="profile-img" id="hero-profile-img">
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-icon">🎓</div>
+            <div class="stat-card-text">
+              <div class="value">BCA Student</div>
+              <div class="label">2023 – 2026</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔐</div>
+            <div class="stat-card-text">
+              <div class="value">Cybersecurity</div>
+              <div class="label">Certified</div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-pill">Python &amp; Java</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" onclick="document.querySelector('.quick-about').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-mouse"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- QUICK ABOUT STRIP -->
+<div class="quick-about">
+  <div class="quick-about-inner">
+    <div class="quick-item" data-aos="fade-up">
+      <div class="num">2</div>
+      <div class="lbl">Projects Built</div>
+    </div>
+    <div class="quick-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="num">2</div>
+      <div class="lbl">Certifications</div>
+    </div>
+    <div class="quick-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="num">4+</div>
+      <div class="lbl">Technologies</div>
+    </div>
+    <div class="quick-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="num">3rd</div>
+      <div class="lbl">Year BCA</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABL<span style="color:var(--accent)">.</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex;gap:10px">
+      <a href="https://www.linkedin.com/in/akash-b-l-0abb05404" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:akashakubl@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="footer-copy">© 2026 Akash B L. Crafted with ❤️ &amp; code.</div>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- SCRIPTS -->
+<script src="assets/js/main.js"></script>
+<script>
+/* Hero Particle Canvas */
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [];
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  for (var i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * 9999,
+      y: Math.random() * 9999,
+      r: Math.random() * 1.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random()
+    });
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(56,189,248,' + (p.a * 0.7) + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* Typing Effect */
+(function() {
+  var texts = ['BCA Student', 'Python Developer', 'Java Learner', 'Cybersecurity Enthusiast', 'Software Developer'];
+  var el = document.getElementById('typing-text');
+  if (!el) return;
+  var tIdx = 0, cIdx = 0, deleting = false;
+  function type() {
+    var full = texts[tIdx];
+    if (!deleting) {
+      el.textContent = full.substring(0, cIdx + 1);
+      cIdx++;
+      if (cIdx === full.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.textContent = full.substring(0, cIdx - 1);
+      cIdx--;
+      if (cIdx === 0) { deleting = false; tIdx = (tIdx + 1) % texts.length; }
+    }
+    setTimeout(type, deleting ? 60 : 90);
+  }
+  setTimeout(type, 800);
+})();
+</script>
+
+</body>
+</html>

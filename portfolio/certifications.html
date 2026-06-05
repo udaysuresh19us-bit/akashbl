@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications — Akash B L</title>
+  <meta name="description" content="Certifications earned by Akash B L — Network Security, Cyber Security, Cloud Computing, and IoT.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-header {
+      min-height: 320px; display: flex; align-items: flex-end;
+      padding: 120px 5% 60px;
+      background: linear-gradient(180deg, rgba(56,189,248,0.04) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+    /* CERT CARDS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 20%, var(--card-glow), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .cert-card:hover {
+      border-color: rgba(56,189,248,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 48px rgba(56,189,248,0.12);
+    }
+    .cert-card:hover::before { opacity: 1; }
+
+    /* Decorative corner ribbon */
+    .cert-card .corner-ribbon {
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      overflow: hidden;
+    }
+    .cert-card .corner-ribbon::before {
+      content: '✓';
+      position: absolute;
+      top: 12px; right: -18px;
+      width: 80px; text-align: center;
+      font-size: 0.7rem; font-weight: 700;
+      color: white;
+      background: var(--gradient);
+      transform: rotate(45deg);
+      padding: 4px 0;
+    }
+
+    .cert-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .cert-icon-wrap.blue {
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.25);
+    }
+    .cert-icon-wrap.purple {
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+
+    .cert-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: var(--text);
+      position: relative; z-index: 1;
+    }
+    .cert-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
+    }
+    .cert-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      flex: 1;
+      position: relative; z-index: 1;
+    }
+    .cert-tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+
+    /* VERIFIED BADGE */
+    .verified-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px;
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.25);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* FUTURE SECTION */
+    .future-section {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+    }
+    .future-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .future-section p { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+    .future-dots { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .future-dot {
+      width: 140px; height: 90px;
+      border-radius: var(--radius);
+      background: var(--surface2);
+      border: 1px dashed var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      flex-direction: column; gap: 8px;
+    }
+    .future-dot i { font-size: 1.4rem; opacity: 0.3; }
+
+    @media (max-width: 700px) { .certs-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">ABL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Loading certifications...</div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">ABL<span style="color:var(--accent)">.</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="education.html">Education</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-header">
+  <div class="ambient ambient-1"></div>
+  <div class="page-header-inner">
+    <div class="section-label">Credentials</div>
+    <h1 class="section-title">My <span>Certifications</span></h1>
+    <p style="color:var(--muted);max-width:520px;font-size:1rem">Professional certifications that complement my academic studies and validate my technical knowledge.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="certs-grid">
+
+      <!-- Cert 1 -->
+      <div class="cert-card" data-aos="fade-up">
+        <div class="corner-ribbon"></div>
+        <div class="cert-icon-wrap blue">🛡️</div>
+        <div class="verified-badge"><i class="fas fa-check-circle"></i> Certified</div>
+        <h2 class="cert-title">Network Security &amp; Cyber Security</h2>
+        <div class="cert-meta">Professional Certification</div>
+        <p class="cert-desc">
+          Covers the fundamentals of network security and cyber security principles including threat identification, secure system design, and best practices for protecting digital assets.
+        </p>
+        <div class="cert-tags">
+          <span class="tag">Network Security</span>
+          <span class="tag">Cyber Security</span>
+          <span class="tag">Threat Analysis</span>
+          <span class="tag">Secure Systems</span>
+        </div>
+      </div>
+
+      <!-- Cert 2 -->
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="corner-ribbon"></div>
+        <div class="cert-icon-wrap purple">☁️</div>
+        <div class="verified-badge"><i class="fas fa-check-circle"></i> Certified</div>
+        <h2 class="cert-title">Cloud Computing &amp; IoT</h2>
+        <div class="cert-meta">Professional Certification</div>
+        <p class="cert-desc">
+          Covers foundational concepts of cloud computing platforms and Internet of Things technologies, including deployment models, cloud services, and IoT architecture fundamentals.
+        </p>
+        <div class="cert-tags">
+          <span class="tag">Cloud Computing</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Cloud Services</span>
+          <span class="tag">Infrastructure</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Future Certs Section -->
+    <div class="future-section" data-aos="fade-up">
+      <h3>🚀 More Certifications Coming Soon</h3>
+      <p>This section is designed to grow. New certifications will be added as they are earned.</p>
+      <div class="future-dots">
+        <div class="future-dot"><i class="fas fa-plus"></i><span>Future Cert</span></div>
+        <div class="future-dot"><i class="fas fa-plus"></i><span>Future Cert</span></div>
+        <div class="future-dot"><i class="fas fa-plus"></i><span>Future Cert</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABL<span style="color:var(--accent)">.</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Akash B L. Crafted with ❤️ &amp; code.</div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education — Akash B L</title>
+  <meta name="description" content="Education of Akash B L — Bachelor of Computer Applications at GFGC Tiptur (2023–2026).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-header {
+      min-height: 320px; display: flex; align-items: flex-end;
+      padding: 120px 5% 60px;
+      background: linear-gradient(180deg, rgba(56,189,248,0.04) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
+
+    /* EDU TIMELINE - enhanced */
+    .edu-timeline { position: relative; padding-left: 0; }
+
+    .edu-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      left: 180px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .edu-card:last-child::before { display: none; }
+
+    .edu-date-col {
+      padding-right: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: 24px;
+    }
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .edu-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--accent), 0 0 16px rgba(56,189,248,0.5);
+      margin-top: 12px;
+      position: relative; right: -8px;
+      flex-shrink: 0;
+    }
+
+    .edu-content-col {
+      padding-left: 48px;
+      padding-bottom: 48px;
+    }
+    .edu-content-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .edu-content-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient);
+    }
+    .edu-content-card:hover {
+      border-color: rgba(56,189,248,0.3);
+      transform: translateX(4px);
+      box-shadow: 0 8px 40px var(--card-glow);
+    }
+
+    .edu-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.2);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .edu-degree {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .edu-institution {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .edu-institution i { color: var(--accent); }
+
+    .edu-details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .edu-detail-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .edu-detail-item .d-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .edu-detail-item .d-value {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .edu-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .edu-courses {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+
+    /* Coursework note */
+    .coursework-note {
+      background: rgba(99,102,241,0.06);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 48px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .coursework-note i { color: var(--accent2); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+    @media (max-width: 780px) {
+      .edu-card { grid-template-columns: 1fr; }
+      .edu-card::before { display: none; }
+      .edu-date-col { flex-direction: row; align-items: center; padding: 0 0 16px; }
+      .edu-dot { display: none; }
+      .edu-content-col { padding-left: 0; padding-bottom: 32px; }
+      .edu-details-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">ABL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">Loading education...</div>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">ABL<span style="color:var(--accent)">.</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="education.html">Education</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page-header">
+  <div class="ambient ambient-1"></div>
+  <div class="page-header-inner">
+    <div class="section-label">Academic Background</div>
+    <h1 class="section-title">My <span>Education</span></h1>
+    <p style="color:var(--muted);max-width:520px;font-size:1rem">My formal academic journey and the foundational knowledge that drives my passion for software development.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+
+    <div class="edu-timeline">
+      <!-- BCA -->
+      <div class="edu-card" data-aos="fade-up">
+        <div class="edu-date-col">
+          <div class="edu-year">2023<br>—<br>2026</div>
+          <div class="edu-dot"></div>
+        </div>
+        <div class="edu-content-col">
+          <div class="edu-content-card">
+            <div class="edu-badge"><i class="fas fa-graduation-cap"></i> Currently Pursuing</div>
+            <h2 class="edu-degree">Bachelor of Computer Applications (BCA)</h2>
+            <div class="edu-institution">
+              <i class="fas fa-university"></i>
+              GFGC Tiptur, Karnataka
+            </div>
+
+            <div class="edu-details-grid">
+              <div class="edu-detail-item">
+                <div class="d-label">Duration</div>
+                <div class="d-value">3 Years</div>
+              </div>
+              <div class="edu-detail-item">
+                <div class="d-label">Start Year</div>
+                <div class="d-value">2023</div>
+              </div>
+              <div class="edu-detail-item">
+                <div class="d-label">Expected</div>
+                <div class="d-value">2026</div>
+              </div>
+            </div>
+
+            <p class="edu-desc">
+              Pursuing a three-year undergraduate degree in Computer Applications at GFGC Tiptur. The program provides a comprehensive foundation in computer science, programming, database systems, and software development with a practical, project-based approach.
+            </p>
+
+            <div class="edu-courses">
+              <span class="tag">Programming in Java</span>
+              <span class="tag">Python Programming</span>
+              <span class="tag">Database Management</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">OOP Concepts</span>
+              <span class="tag">Cyber Security</span>
+              <span class="tag">Web Technology</span>
+              <span class="tag">Computer Networks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coursework-note" data-aos="fade-up">
+      <i class="fas fa-lightbulb"></i>
+      <div>
+        <strong style="color:var(--text);display:block;margin-bottom:4px">Active Learner</strong>
+        Alongside formal education, I have actively pursued certifications in Network Security, Cyber Security, Cloud Computing, and IoT — complementing my academic curriculum with industry-relevant credentials.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ABL<span style="color:var(--accent)">.</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="education.html">Education</a>
+      <a href="certifications.html">Certs</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Akash B L. Crafted with ❤️ &amp; code.</div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
